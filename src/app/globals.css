@@ -1038,27 +1038,118 @@ input:checked + .slider:before {
   padding: 2rem 0;
 }
 
+/* Tab panes display defaults */
+.tab-pane {
+  display: none;
+}
+.tab-pane.active {
+  display: block;
+}
+
+.print-section-header {
+  display: none;
+}
+
 /* Print/Export Styling overrides */
 @media print {
   body {
     background: white !important;
     color: black !important;
   }
-  .app-header, .search-container, .terminal-container, .btn-primary, .btn-secondary, .settings-overlay, .tabs-nav {
+  
+  .app-header, 
+  .search-container, 
+  .terminal-container, 
+  .btn-primary, 
+  .btn-secondary, 
+  .settings-overlay, 
+  .tabs-nav,
+  .app-footer {
     display: none !important;
   }
+  
   .report-layout {
     display: block !important;
   }
+  
   .glass-panel {
     background: none !important;
-    border: 1px solid #ccc !important;
+    border: 1px solid #ddd !important;
     box-shadow: none !important;
+    padding: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    page-break-inside: avoid;
   }
+  
   .tab-content {
     display: block !important;
   }
-  .tab-button {
-    display: none !important;
+  
+  .tab-pane {
+    display: block !important;
+    margin-bottom: 2.5rem !important;
+    opacity: 1 !important;
+    page-break-inside: avoid;
+  }
+  
+  .tab-pane p, 
+  .tab-pane li,
+  .tab-content {
+    color: #222 !important;
+  }
+  
+  .tab-pane h3, 
+  .tab-pane h4 {
+    color: #000 !important;
+  }
+  
+  .print-section-header {
+    display: block !important;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+    border-bottom: 2px solid #555;
+    padding-bottom: 0.4rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    page-break-after: avoid;
+  }
+  
+  /* Make circular scores look neat in print */
+  .score-card {
+    border: 1px solid #ddd !important;
+    page-break-inside: avoid;
+  }
+  
+  .score-bg-ring {
+    stroke: #eee !important;
+  }
+  
+  .score-text-val {
+    color: black !important;
+  }
+  
+  .score-desc {
+    color: black !important;
+  }
+
+  .pro-con-card {
+    page-break-inside: avoid;
+  }
+
+  .risk-table-container {
+    border-color: #ddd !important;
+  }
+
+  .risk-table th {
+    background: #f5f5f5 !important;
+    color: #000 !important;
+    border-bottom: 2px solid #ccc !important;
+  }
+
+  .risk-table td {
+    color: #333 !important;
+    border-bottom: 1px solid #eee !important;
   }
 }

@@ -252,18 +252,29 @@ export default function ResearchReport({ report }: ResearchReportProps) {
           </div>
 
           <div className="tab-content">
-            {activeTab === 'profile' && (
-              <div dangerouslySetInnerHTML={renderSimpleMarkdown(details.businessModel)} />
-            )}
-            {activeTab === 'financials' && (
-              <div dangerouslySetInnerHTML={renderSimpleMarkdown(details.financialHealth)} />
-            )}
-            {activeTab === 'moat' && (
-              <div dangerouslySetInnerHTML={renderSimpleMarkdown(details.competitorsAndMoat)} />
-            )}
-            {activeTab === 'sentiment' && (
-              <div dangerouslySetInnerHTML={renderSimpleMarkdown(details.newsAndSentiment)} />
-            )}
+            <div className="print-section-header">Business Model & Profile</div>
+            <div 
+              className={`tab-pane ${activeTab === 'profile' ? 'active' : ''}`}
+              dangerouslySetInnerHTML={renderSimpleMarkdown(details.businessModel)} 
+            />
+            
+            <div className="print-section-header">Financial Health & Growth</div>
+            <div 
+              className={`tab-pane ${activeTab === 'financials' ? 'active' : ''}`}
+              dangerouslySetInnerHTML={renderSimpleMarkdown(details.financialHealth)} 
+            />
+            
+            <div className="print-section-header">Moat & Competition Analysis</div>
+            <div 
+              className={`tab-pane ${activeTab === 'moat' ? 'active' : ''}`}
+              dangerouslySetInnerHTML={renderSimpleMarkdown(details.competitorsAndMoat)} 
+            />
+            
+            <div className="print-section-header">News & Risk Sentiment</div>
+            <div 
+              className={`tab-pane ${activeTab === 'sentiment' ? 'active' : ''}`}
+              dangerouslySetInnerHTML={renderSimpleMarkdown(details.newsAndSentiment)} 
+            />
           </div>
         </div>
       </div>
